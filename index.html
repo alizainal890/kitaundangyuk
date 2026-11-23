@@ -1085,10 +1085,10 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
         function startBuiltInAmbientPiano() {
             if (!audioCtx) {
                 const AudioContext = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContext();
+                audioCtx = new AudioContext(rizkybermuara.MP3);
             }
             if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
+                audioCtx.pause();
             }
 
             // Progresi akor lembut Fmaj7 - Em7 - Dm7 - Cmaj7
@@ -1142,7 +1142,7 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
 
             if (customAudioElement) {
                 stopBuiltInAmbientPiano();
-                customAudioElement.play().catch(() => {});
+                customAudioElement.play(rizkybermuara.MP3).catch(() => {});
             } else {
                 startBuiltInAmbientPiano();
             }
