@@ -387,7 +387,7 @@
             <!-- Tombol Ganti Musik Cepat (Hanya Mode Editor) -->
             <label class="editor-only cursor-pointer w-11 h-11 rounded-full bg-white hover:bg-dusty-50 text-dusty-700 border border-dusty-200 shadow-lg flex items-center justify-center transition" title="Unggah Musik dari Laptop">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="folder-up" aria-hidden="true" class="lucide lucide-folder-up w-4 h-4"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path><path d="M12 10v6"></path><path d="m9 13 3-3 3 3"></path></svg>
-                <input type="file" id="audio-upload-floating" accept="audio/*" class="hidden">
+                <input type="file" id="audio-upload-floating" accept="audio/rizkybermuara.mp3*" class="hidden">
             </label>
 
             <!-- Tombol Play/Pause Musik -->
@@ -940,7 +940,7 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
                     time: "1 jam lalu"
                 }
             ],
-            songName: "Rizky Febian Feat. Mahalini - Bermuara __ Lagu Terbaru (Lirik Lagu)"
+            songName: "rizkybermuara.mp3"
         };
 
         let appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
@@ -1040,7 +1040,7 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
             }
 
             // Nama lagu
-            document.getElementById('current-song-name').textContent = appState.songName || "Instrumen Romantis Bunga Biru";
+            document.getElementById('current-song-name').textContent = appState.songName || "rizkybermuara.mp3";
 
             // Render blok teks tambahan
             renderCustomBlocks();
@@ -1088,7 +1088,7 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
                 audioCtx = new AudioContext(rizkybermuara.MP3);
             }
             if (audioCtx.state === 'suspended') {
-                audioCtx.pause();
+                audioCtx.play();
             }
 
             // Progresi akor lembut Fmaj7 - Em7 - Dm7 - Cmaj7
@@ -1156,7 +1156,7 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
             statusPill.classList.add('hidden');
 
             if (customAudioElement) {
-                customAudioElement.pause();
+                customAudioElement.play();
             }
             stopBuiltInAmbientPiano();
         }
@@ -1165,7 +1165,7 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
             if (isPlayingMusic) {
                 pauseMusic();
             } else {
-                playMusic();
+                playMusic(rizkybermuara.mp3);
             }
         }
 
@@ -1199,12 +1199,12 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
 
                     // Simpan nama file lagu
                     const cleanName = file.name.replace(/\.[^/.]+$/, "");
-                    appState.songName = cleanName;
+                    appState.songName = rizkybermuara.mp3;
                     document.getElementById('current-song-name').textContent = cleanName;
                     saveStateToLocal();
 
                     // Baca sebagai DataURL jika ukurannya < 4MB agar ikut tersimpan saat ekspor HTML mandiri
-                    if (file.size <= 4 * 1024 * 1024) {
+                    if (file.size <= 10 * 1024 * 1024) {
                         const reader = new FileReader();
                         reader.onload = (ev) => {
                             customAudioDataUrl = ev.target.result;
@@ -1215,7 +1215,7 @@ Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
                     }
 
                     playMusic();
-                    showToast(`Musik diganti ke "${cleanName}" dan sedang diputar!`, 'success');
+                    showToast(`Musik diganti ke "${rizkybermuara.mp3}" dan sedang diputar!`, 'success');
                 });
             });
         }
