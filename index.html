@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan — Nia &amp; Irfan</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond, Great Vibes, Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Great+Vibes&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest" crossorigin="anonymous"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#FAFBFD',
+                        mist: '#F1F5FA',
+                        dusty: {
+                            50: '#F4F7FB',
+                            100: '#E5EDF6',
+                            200: '#C9DAEE',
+                            300: '#A3C0E2',
+                            400: '#769FD3',
+                            500: '#5380BE',
+                            600: '#3D659F',
+                            700: '#315080',
+                            800: '#2A436A',
+                            900: '#1D2F4C',
+                        },
+                        gold: {
+                            300: '#E5C98B',
+                            400: '#D4B06A',
+                            500: '#B8924A',
+                            600: '#9A7535',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        script: ['"Great Vibes"', 'cursive'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Kustomisasi Gaya & Animasi Bunga Biru */
+        body {
+            background-color: #FAFBFD;
+            color: #1D2F4C;
+            overflow-x: hidden;
+        }
+
+        /* Tekstur Kertas Halus (Watercolor Paper Feel) */
+        .paper-texture {
+            background-image: radial-gradient(rgba(83, 128, 190, 0.06) 1px, transparent 0),
+                              radial-gradient(rgba(184, 146, 74, 0.04) 1px, transparent 0);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+        }
+
+        /* Bingkai Kartu Undangan */
+        .invitation-card {
+            box-shadow: 0 20px 60px -15px rgba(29, 47, 76, 0.12), 0 0 1px 1px rgba(83, 128, 190, 0.15);
+        }
+
+        /* Animasi Mengambang Halus untuk Bunga */
+        @keyframes swaySlow {
+            0%, 100% { transform: rotate(0deg) translateY(0px); }
+            50% { transform: rotate(2deg) translateY(-4px); }
+        }
+        .floral-sway {
+            animation: swaySlow 7s ease-in-out infinite;
+            transform-origin: center;
+        }
+        .floral-sway-reverse {
+            animation: swaySlow 8.5s ease-in-out infinite reverse;
+            transform-origin: center;
+        }
+
+        /* Animasi Putar Piringan Musik */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .music-spinning {
+            animation: spinSlow 8s linear infinite;
+        }
+
+        /* Indikator Editable saat Mode Editor Aktif */
+        body.editor-active [data-editable="true"] {
+            outline: 1px dashed rgba(83, 128, 190, 0.45);
+            outline-offset: 4px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            cursor: text;
+        }
+        body.editor-active [data-editable="true"]:hover {
+            background-color: rgba(229, 237, 246, 0.55);
+            outline: 1.5px dashed #3D659F;
+        }
+        body.editor-active [data-editable="true"]:focus {
+            background-color: #FFFFFF;
+            outline: 2px solid #5380BE;
+            box-shadow: 0 4px 12px rgba(83, 128, 190, 0.15);
+        }
+
+        /* Sembunyikan semua elemen UI Editor ketika dalam Mode Tamu / Read-Only */
+        body.guest-mode .editor-only {
+            display: none !important;
+        }
+        body.guest-mode [data-editable="true"] {
+            outline: none !important;
+            background-color: transparent !important;
+            cursor: default !important;
+        }
+
+        /* Transisi Cover Pembuka */
+        #cover-overlay {
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+        }
+        #cover-overlay.opened {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5FA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A3C0E2;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5380BE;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Plus Jakarta Sans", sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.inset-1\.5{inset:0.375rem}.inset-1{inset:0.25rem}.bottom-0{bottom:0px}.bottom-5{bottom:1.25rem}.left-0{left:0px}.left-1\/2{left:50%}.right-0{right:0px}.right-5{right:1.25rem}.top-0{top:0px}.top-5{top:1.25rem}.right-3{right:0.75rem}.top-3{top:0.75rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.z-\[100\]{z-index:100}.z-\[90\]{z-index:90}.z-\[80\]{z-index:80}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-top:auto;margin-bottom:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mt-3{margin-top:0.75rem}.mt-8{margin-top:2rem}.mb-8{margin-bottom:2rem}.mt-5{margin-top:1.25rem}.mb-1\.5{margin-bottom:0.375rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-2{height:0.5rem}.h-24{height:6rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-40{height:10rem}.h-44{height:11rem}.h-5{height:1.25rem}.h-8{height:2rem}.h-20{height:5rem}.h-3{height:0.75rem}.h-6{height:1.5rem}.h-9{height:2.25rem}.h-7{height:1.75rem}.max-h-72{max-height:18rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-2{width:0.5rem}.w-24{width:6rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-40{width:10rem}.w-44{width:11rem}.w-5{width:1.25rem}.w-64{width:16rem}.w-8{width:2rem}.w-\[90\%\]{width:90%}.w-full{width:100%}.w-20{width:5rem}.w-3{width:0.75rem}.w-6{width:1.5rem}.w-9{width:2.25rem}.w-7{width:1.75rem}.max-w-3xl{max-width:48rem}.max-w-6xl{max-width:72rem}.max-w-\[210px\]{max-width:210px}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.max-w-lg{max-width:32rem}.max-w-sm{max-width:24rem}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-\[-1\]{--tw-scale-x:-1;--tw-scale-y:-1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-x-\[-1\]{--tw-scale-x:-1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-y-\[-1\]{--tw-scale-y:-1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.select-all{-webkit-user-select:all;user-select:all}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-1{gap:0.25rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.875rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.scroll-smooth{scroll-behavior:smooth}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-pre-line{white-space:pre-line}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.rounded-md{border-radius:0.375rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-dusty-200{--tw-border-opacity:1;border-color:rgb(201 218 238 / var(--tw-border-opacity, 1))}.border-dusty-200\/80{border-color:rgb(201 218 238 / 0.8)}.border-dusty-200\/90{border-color:rgb(201 218 238 / 0.9)}.border-dusty-300{--tw-border-opacity:1;border-color:rgb(163 192 226 / var(--tw-border-opacity, 1))}.border-dusty-600{--tw-border-opacity:1;border-color:rgb(61 101 159 / var(--tw-border-opacity, 1))}.border-gold-300\/70{border-color:rgb(229 201 139 / 0.7)}.border-gold-400\/40{border-color:rgb(212 176 106 / 0.4)}.border-gold-400\/70{border-color:rgb(212 176 106 / 0.7)}.border-dusty-400{--tw-border-opacity:1;border-color:rgb(118 159 211 / var(--tw-border-opacity, 1))}.border-gold-400\/60{border-color:rgb(212 176 106 / 0.6)}.border-white\/15{border-color:rgb(255 255 255 / 0.15)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-dusty-100{--tw-border-opacity:1;border-color:rgb(229 237 246 / var(--tw-border-opacity, 1))}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211 / var(--tw-border-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-dusty-100{--tw-bg-opacity:1;background-color:rgb(229 237 246 / var(--tw-bg-opacity, 1))}.bg-dusty-50{--tw-bg-opacity:1;background-color:rgb(244 247 251 / var(--tw-bg-opacity, 1))}.bg-dusty-50\/90{background-color:rgb(244 247 251 / 0.9)}.bg-dusty-900\/95{background-color:rgb(29 47 76 / 0.95)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-ivory{--tw-bg-opacity:1;background-color:rgb(250 251 253 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/85{background-color:rgb(255 255 255 / 0.85)}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-dusty-50\/70{background-color:rgb(244 247 251 / 0.7)}.bg-dusty-50\/80{background-color:rgb(244 247 251 / 0.8)}.bg-dusty-700{--tw-bg-opacity:1;background-color:rgb(49 80 128 / var(--tw-bg-opacity, 1))}.bg-mist\/80{background-color:rgb(241 245 250 / 0.8)}.bg-slate-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/15{background-color:rgb(255 255 255 / 0.15)}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-dusty-50{--tw-gradient-from:#F4F7FB var(--tw-gradient-from-position);--tw-gradient-to:rgb(244 247 251 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-dusty-600{--tw-gradient-from:#3D659F var(--tw-gradient-from-position);--tw-gradient-to:rgb(61 101 159 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-dusty-700{--tw-gradient-from:#315080 var(--tw-gradient-from-position);--tw-gradient-to:rgb(49 80 128 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-dusty-800{--tw-gradient-from:#2A436A var(--tw-gradient-from-position);--tw-gradient-to:rgb(42 67 106 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-dusty-600{--tw-gradient-to:rgb(61 101 159 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #3D659F var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-dusty-700{--tw-gradient-to:rgb(49 80 128 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #315080 var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-dusty-800{--tw-gradient-to:#2A436A var(--tw-gradient-to-position)}.to-dusty-900{--tw-gradient-to:#1D2F4C var(--tw-gradient-to-position)}.to-white{--tw-gradient-to:#fff var(--tw-gradient-to-position)}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.p-1\.5{padding:0.375rem}.p-5{padding:1.25rem}.p-3\.5{padding:0.875rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-8{padding-top:2rem;padding-bottom:2rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-12{padding-bottom:3rem}.pb-28{padding-bottom:7rem}.pt-24{padding-top:6rem}.pb-24{padding-bottom:6rem}.pr-1{padding-right:0.25rem}.pt-4{padding-top:1rem}.pt-8{padding-top:2rem}.pt-2{padding-top:0.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:"Plus Jakarta Sans", sans-serif}.font-script{font-family:"Great Vibes", cursive}.font-serif{font-family:"Cormorant Garamond", Georgia, serif}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.leading-snug{line-height:1.375}.leading-none{line-height:1}.tracking-\[0\.28em\]{letter-spacing:0.28em}.tracking-\[0\.3em\]{letter-spacing:0.3em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.tracking-\[0\.25em\]{letter-spacing:0.25em}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15 / var(--tw-text-opacity, 1))}.text-dusty-500{--tw-text-opacity:1;color:rgb(83 128 190 / var(--tw-text-opacity, 1))}.text-dusty-600{--tw-text-opacity:1;color:rgb(61 101 159 / var(--tw-text-opacity, 1))}.text-dusty-700{--tw-text-opacity:1;color:rgb(49 80 128 / var(--tw-text-opacity, 1))}.text-dusty-800{--tw-text-opacity:1;color:rgb(42 67 106 / var(--tw-text-opacity, 1))}.text-dusty-900{--tw-text-opacity:1;color:rgb(29 47 76 / var(--tw-text-opacity, 1))}.text-gold-300{--tw-text-opacity:1;color:rgb(229 201 139 / var(--tw-text-opacity, 1))}.text-gold-600{--tw-text-opacity:1;color:rgb(154 117 53 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-dusty-200{--tw-text-opacity:1;color:rgb(201 218 238 / var(--tw-text-opacity, 1))}.text-gold-500{--tw-text-opacity:1;color:rgb(184 146 74 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-dusty-700\/25{--tw-shadow-color:rgb(49 80 128 / 0.25);--tw-shadow:var(--tw-shadow-colored)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-dusty-200 *::selection{--tw-bg-opacity:1;background-color:rgb(201 218 238 / var(--tw-bg-opacity, 1))}.selection\:text-dusty-900 *::selection{--tw-text-opacity:1;color:rgb(29 47 76 / var(--tw-text-opacity, 1))}.selection\:bg-dusty-200::selection{--tw-bg-opacity:1;background-color:rgb(201 218 238 / var(--tw-bg-opacity, 1))}.selection\:text-dusty-900::selection{--tw-text-opacity:1;color:rgb(29 47 76 / var(--tw-text-opacity, 1))}.hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-amber-100:hover{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.hover\:bg-dusty-100:hover{--tw-bg-opacity:1;background-color:rgb(229 237 246 / var(--tw-bg-opacity, 1))}.hover\:bg-dusty-50:hover{--tw-bg-opacity:1;background-color:rgb(244 247 251 / var(--tw-bg-opacity, 1))}.hover\:bg-dusty-800:hover{--tw-bg-opacity:1;background-color:rgb(42 67 106 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/25:hover{background-color:rgb(255 255 255 / 0.25)}.hover\:bg-emerald-700:hover{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-100:hover{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.hover\:from-dusty-700:hover{--tw-gradient-from:#315080 var(--tw-gradient-from-position);--tw-gradient-to:rgb(49 80 128 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:from-dusty-800:hover{--tw-gradient-from:#2A436A var(--tw-gradient-from-position);--tw-gradient-to:rgb(42 67 106 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-dusty-900:hover{--tw-gradient-to:#1D2F4C var(--tw-gradient-to-position)}.hover\:text-dusty-900:hover{--tw-text-opacity:1;color:rgb(29 47 76 / var(--tw-text-opacity, 1))}.focus\:border-dusty-500:focus{--tw-border-opacity:1;border-color:rgb(83 128 190 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:translate-y-0:active{--tw-translate-y:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:block{display:block}.sm\:inline{display:inline}.sm\:hidden{display:none}.sm\:h-28{height:7rem}.sm\:h-56{height:14rem}.sm\:h-64{height:16rem}.sm\:w-28{width:7rem}.sm\:w-56{width:14rem}.sm\:w-64{width:16rem}.sm\:w-80{width:20rem}.sm\:w-auto{width:auto}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:gap-2{gap:0.5rem}.sm\:gap-4{gap:1rem}.sm\:p-10{padding:2.5rem}.sm\:p-8{padding:2rem}.sm\:p-7{padding:1.75rem}.sm\:px-14{padding-left:3.5rem;padding-right:3.5rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-12{padding-top:3rem;padding-bottom:3rem}.sm\:pt-28{padding-top:7rem}.sm\:pb-28{padding-bottom:7rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-7xl{font-size:4.5rem;line-height:1}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:col-span-5{grid-column:span 5 / span 5}.md\:inline{display:inline}.md\:hidden{display:none}.md\:grid-cols-11{grid-template-columns:repeat(11, minmax(0, 1fr))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style></head>
+<body class="font-sans antialiased selection:bg-dusty-200 selection:text-dusty-900 paper-texture editor-active">
+
+    <!-- =====================================================================
+         SVG DEFINITIONS: ORNAMEN BUNGA BIRU WATERCOLOR-STYLE & DAUN EMAS
+         ===================================================================== -->
+    <svg class="hidden" aria-hidden="true">
+        <defs>
+            <!-- Gradien Kelopak Bunga Biru Dusty -->
+            <radialGradient id="bluePetalGrad" cx="30%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#D9E8F8"></stop>
+                <stop offset="55%" stop-color="#8AB0DE"></stop>
+                <stop offset="100%" stop-color="#4A74B0"></stop>
+            </radialGradient>
+            <radialGradient id="navyPetalGrad" cx="40%" cy="40%" r="70%">
+                <stop offset="0%" stop-color="#769FD3"></stop>
+                <stop offset="65%" stop-color="#35588C"></stop>
+                <stop offset="100%" stop-color="#1E355B"></stop>
+            </radialGradient>
+            <linearGradient id="eucalyptusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#A8C5D8"></stop>
+                <stop offset="100%" stop-color="#5E859E"></stop>
+            </linearGradient>
+            <linearGradient id="goldLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#EBD39C"></stop>
+                <stop offset="50%" stop-color="#C9A255"></stop>
+                <stop offset="100%" stop-color="#9B7632"></stop>
+            </linearGradient>
+
+            <!-- Rangkaian Bunga Sudut (Corner Bouquet) -->
+            <g id="floral-corner-bouquet">
+                <!-- Ranting Eucalyptus & Daun Emas -->
+                <path d="M10,180 Q65,120 155,35" stroke="#6E92A8" stroke-width="1.8" fill="none" opacity="0.75"></path>
+                <path d="M25,130 Q80,95 145,80" stroke="url(#goldLeafGrad)" stroke-width="1.4" fill="none" opacity="0.85"></path>
+                <!-- Daun-daun -->
+                <ellipse cx="45" cy="145" rx="14" ry="7" transform="rotate(-35 45 145)" fill="url(#eucalyptusGrad)" opacity="0.8"></ellipse>
+                <ellipse cx="75" cy="115" rx="16" ry="8" transform="rotate(-25 75 115)" fill="url(#eucalyptusGrad)" opacity="0.75"></ellipse>
+                <ellipse cx="110" cy="85" rx="14" ry="7" transform="rotate(-40 110 85)" fill="url(#eucalyptusGrad)" opacity="0.7"></ellipse>
+                <ellipse cx="60" cy="75" rx="13" ry="6" transform="rotate(20 60 75)" fill="url(#eucalyptusGrad)" opacity="0.65"></ellipse>
+                <ellipse cx="120" cy="45" rx="12" ry="5" transform="rotate(-15 120 45)" fill="url(#goldLeafGrad)" opacity="0.75"></ellipse>
+                <ellipse cx="95" cy="102" rx="11" ry="4.5" transform="rotate(30 95 102)" fill="url(#goldLeafGrad)" opacity="0.8"></ellipse>
+                
+                <!-- Bunga Utama 1 (Hydrangea/Rose Biru Besar) -->
+                <g transform="translate(52, 58)">
+                    <circle cx="0" cy="-16" r="15" fill="url(#bluePetalGrad)" opacity="0.9"></circle>
+                    <circle cx="15" cy="-5" r="15" fill="url(#bluePetalGrad)" opacity="0.88"></circle>
+                    <circle cx="10" cy="13" r="15" fill="url(#bluePetalGrad)" opacity="0.92"></circle>
+                    <circle cx="-10" cy="13" r="15" fill="url(#bluePetalGrad)" opacity="0.88"></circle>
+                    <circle cx="-15" cy="-5" r="15" fill="url(#bluePetalGrad)" opacity="0.9"></circle>
+                    <circle cx="0" cy="-8" r="10" fill="url(#navyPetalGrad)" opacity="0.75"></circle>
+                    <circle cx="7" cy="4" r="10" fill="url(#navyPetalGrad)" opacity="0.75"></circle>
+                    <circle cx="-7" cy="4" r="10" fill="url(#navyPetalGrad)" opacity="0.75"></circle>
+                    <!-- Benang sari emas -->
+                    <circle cx="0" cy="0" r="4.5" fill="url(#goldLeafGrad)"></circle>
+                    <circle cx="-3" cy="-2" r="1.5" fill="#FFFDF7"></circle>
+                    <circle cx="3" cy="2" r="1.5" fill="#FFFDF7"></circle>
+                </g>
+
+                <!-- Bunga Sekunder 2 -->
+                <g transform="translate(105, 32) scale(0.72)">
+                    <circle cx="0" cy="-14" r="13" fill="url(#bluePetalGrad)" opacity="0.85"></circle>
+                    <circle cx="13" cy="0" r="13" fill="url(#bluePetalGrad)" opacity="0.85"></circle>
+                    <circle cx="0" cy="14" r="13" fill="url(#bluePetalGrad)" opacity="0.85"></circle>
+                    <circle cx="-13" cy="0" r="13" fill="url(#bluePetalGrad)" opacity="0.85"></circle>
+                    <circle cx="0" cy="0" r="5" fill="url(#goldLeafGrad)"></circle>
+                </g>
+
+                <!-- Bunga Sekunder 3 -->
+                <g transform="translate(28, 112) scale(0.68)">
+                    <circle cx="0" cy="-14" r="13" fill="url(#navyPetalGrad)" opacity="0.85"></circle>
+                    <circle cx="13" cy="0" r="13" fill="url(#bluePetalGrad)" opacity="0.9"></circle>
+                    <circle cx="0" cy="14" r="13" fill="url(#navyPetalGrad)" opacity="0.85"></circle>
+                    <circle cx="-13" cy="0" r="13" fill="url(#bluePetalGrad)" opacity="0.9"></circle>
+                    <circle cx="0" cy="0" r="5" fill="url(#goldLeafGrad)"></circle>
+                </g>
+
+                <!-- Kuncup Kecil -->
+                <circle cx="140" cy="68" r="5" fill="#769FD3" opacity="0.75"></circle>
+                <circle cx="75" cy="145" r="4.5" fill="#769FD3" opacity="0.7"></circle>
+                <circle cx="132" cy="22" r="3.5" fill="url(#goldLeafGrad)"></circle>
+            </g>
+
+            <!-- Pembatas Bagian (Floral Divider) -->
+            <g id="floral-divider">
+                <line x1="10" y1="20" x2="115" y2="20" stroke="url(#goldLeafGrad)" stroke-width="1" opacity="0.7"></line>
+                <line x1="185" y1="20" x2="290" y2="20" stroke="url(#goldLeafGrad)" stroke-width="1" opacity="0.7"></line>
+                <ellipse cx="128" cy="20" rx="8" ry="3.5" fill="url(#eucalyptusGrad)" opacity="0.8"></ellipse>
+                <ellipse cx="172" cy="20" rx="8" ry="3.5" fill="url(#eucalyptusGrad)" opacity="0.8"></ellipse>
+                <g transform="translate(150, 20) scale(0.55)">
+                    <circle cx="0" cy="-12" r="11" fill="url(#bluePetalGrad)"></circle>
+                    <circle cx="11" cy="-4" r="11" fill="url(#bluePetalGrad)"></circle>
+                    <circle cx="7" cy="10" r="11" fill="url(#bluePetalGrad)"></circle>
+                    <circle cx="-7" cy="10" r="11" fill="url(#bluePetalGrad)"></circle>
+                    <circle cx="-11" cy="-4" r="11" fill="url(#bluePetalGrad)"></circle>
+                    <circle cx="0" cy="0" r="4.5" fill="url(#goldLeafGrad)"></circle>
+                </g>
+            </g>
+        </defs>
+    </svg>
+
+    <!-- =====================================================================
+         TOAST NOTIFICATION (PENGGANTI ALERT)
+         ===================================================================== -->
+    <div id="toast-container" class="fixed top-5 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none w-[90%] max-w-md"></div>
+
+    <!-- =====================================================================
+         TOOLBAR EDITOR STUDIO (HANYA MUNCUL DI MODE EDITOR)
+         ===================================================================== -->
+    <header id="editor-toolbar" class="editor-only sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-dusty-200 shadow-sm transition-all">
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2">
+            <!-- Brand Studio -->
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-dusty-600 to-dusty-800 text-white flex items-center justify-center shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-4 h-4"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-sm text-dusty-900">Studio Undangan</span>
+                        <span id="mode-badge" class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-dusty-100 text-dusty-700">Mode Edit</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 hidden sm:block">Klik teks mana saja di undangan untuk mengedit langsung</p>
+                </div>
+            </div>
+
+            <!-- Kontrol Aksi Editor -->
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <!-- Tombol Ganti Musik dari Laptop -->
+                <label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-dusty-50 hover:bg-dusty-100 text-dusty-800 border border-dusty-200 transition shadow-xs" title="Pilih file lagu (.mp3/.wav) dari laptop">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="music" aria-hidden="true" class="lucide lucide-music w-3.5 h-3.5 text-dusty-600"><path d="M21 16V3a1 1 0 0 0-1.28-.96l-10 2.917a1 1 0 0 0-.72.96V19"></path><circle cx="18" cy="16" r="3"></circle><circle cx="6" cy="19" r="3"></circle></svg>
+                    <span>Ganti Musik</span>
+                    <input type="file" id="audio-upload-input" accept="audio/*" class="hidden">
+                </label>
+
+                <!-- Tombol Tambah Blok Teks -->
+                <button onclick="openAddTextModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-dusty-50 hover:bg-dusty-100 text-dusty-800 border border-dusty-200 transition shadow-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus-circle" aria-hidden="true" class="lucide lucide-plus-circle w-3.5 h-3.5 text-dusty-600"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+                    <span>Tambah Teks</span>
+                </button>
+
+                <!-- Tombol Atur Link Google Maps -->
+                <button onclick="openMapsModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-dusty-50 hover:bg-dusty-100 text-dusty-800 border border-dusty-200 transition shadow-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-3.5 h-3.5 text-dusty-600"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span class="hidden md:inline">Link Maps</span>
+                    <span class="md:hidden">Maps</span>
+                </button>
+
+                <!-- Tombol Pratinjau Mode Tamu -->
+                <button onclick="togglePreviewGuestMode()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 transition shadow-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="eye" aria-hidden="true" class="lucide lucide-eye w-3.5 h-3.5 text-amber-600"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span class="hidden sm:inline">Pratinjau Tamu</span>
+                    <span class="sm:hidden">Preview</span>
+                </button>
+
+                <!-- Tombol Sebar Link Online -->
+                <button onclick="openShareModal()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-dusty-600 to-dusty-800 hover:from-dusty-700 hover:to-dusty-900 text-white shadow-sm transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="share-2" aria-hidden="true" class="lucide lucide-share-2 w-3.5 h-3.5"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg>
+                    <span>Sebar Link Online</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER KELUAR DARI PRATINJAU TAMU (Hanya muncul saat Pratinjau Tamu diaktifkan dari Studio) -->
+    <div id="preview-exit-banner" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-[90] bg-dusty-900/95 text-white px-4 py-2.5 rounded-full shadow-xl border border-dusty-600 flex items-center gap-3 backdrop-blur-md">
+        <span class="text-xs flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="lock" aria-hidden="true" class="lucide lucide-lock w-3.5 h-3.5 text-gold-300"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Anda sedang melihat tampilan <strong>Mode Tamu (Terkunci)</strong>
+        </span>
+        <button onclick="exitPreviewGuestMode()" class="px-3 py-1 rounded-full bg-white text-dusty-900 text-xs font-semibold hover:bg-dusty-100 transition">
+            Kembali Edit
+        </button>
+    </div>
+
+    <!-- =====================================================================
+         COVER PEMBUKA UNDANGAN (OPENING ENVELOPE SCREEN)
+         ===================================================================== -->
+    <section id="cover-overlay" class="fixed inset-0 z-40 bg-ivory paper-texture flex items-center justify-center p-4 overflow-y-auto">
+        <!-- Ornamen Bunga Sudut Cover -->
+        <svg class="fixed top-0 left-0 w-44 h-44 sm:w-64 sm:h-64 pointer-events-none floral-sway" viewBox="0 0 200 200">
+            <use href="#floral-corner-bouquet"></use>
+        </svg>
+        <svg class="fixed top-0 right-0 w-44 h-44 sm:w-64 sm:h-64 pointer-events-none scale-x-[-1] floral-sway-reverse" viewBox="0 0 200 200">
+            <use href="#floral-corner-bouquet"></use>
+        </svg>
+        <svg class="fixed bottom-0 left-0 w-44 h-44 sm:w-64 sm:h-64 pointer-events-none scale-y-[-1] floral-sway-reverse" viewBox="0 0 200 200">
+            <use href="#floral-corner-bouquet"></use>
+        </svg>
+        <svg class="fixed bottom-0 right-0 w-44 h-44 sm:w-64 sm:h-64 pointer-events-none scale-[-1] floral-sway" viewBox="0 0 200 200">
+            <use href="#floral-corner-bouquet"></use>
+        </svg>
+
+        <!-- Kartu Cover Utama -->
+        <div class="relative z-10 w-full max-w-md bg-white/85 backdrop-blur-md border border-dusty-200/80 rounded-3xl p-7 sm:p-10 text-center invitation-card my-auto">
+            <!-- Bingkai Garis Tipis Dalam -->
+            <div class="border border-gold-400/40 rounded-2xl p-6 sm:p-8 flex flex-col items-center">
+                <p data-editable="true" data-key="coverSubtitle" class="text-xs sm:text-sm uppercase tracking-[0.28em] text-dusty-600 font-medium mb-4" contenteditable="true">The Wedding Of</p>
+
+                <!-- Monogram Tanpa Foto -->
+                <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-dusty-300 bg-gradient-to-b from-dusty-50 to-white flex items-center justify-center mb-5 shadow-inner">
+                    <div class="absolute inset-1.5 rounded-full border border-dashed border-gold-400/70"></div>
+                    <span data-editable="true" data-key="monogram" class="font-serif text-3xl sm:text-4xl font-semibold text-dusty-800 tracking-wider" contenteditable="true">N &amp; I</span>
+                </div>
+
+                <!-- Nama Mempelai -->
+                <h1 data-editable="true" data-key="coupleDisplay" class="font-script text-5xl sm:text-6xl text-dusty-900 leading-tight mb-2" contenteditable="true">Nia &amp; Irfan</h1>
+
+                <p data-editable="true" data-key="coverDate" class="font-serif italic text-base sm:text-lg text-dusty-700 mb-6" contenteditable="true">Selasa, 15 Desember 2026</p>
+
+                <!-- Kotak Nama Tamu Undangan -->
+                <div class="w-full bg-dusty-50/90 border border-dusty-200/80 rounded-2xl p-4 mb-6">
+                    <p class="text-[11px] uppercase tracking-widest text-dusty-500 mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                    <p id="guest-name-display" class="font-serif text-xl sm:text-2xl font-semibold text-dusty-900">
+                        Tamu Undangan
+                    </p>
+                </div>
+
+                <!-- Tombol Buka Undangan -->
+                <button onclick="openInvitation()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-dusty-700 via-dusty-600 to-dusty-800 hover:from-dusty-800 hover:to-dusty-900 text-white font-medium text-sm tracking-wide shadow-lg shadow-dusty-700/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="mail-open" aria-hidden="true" class="lucide lucide-mail-open w-4 h-4 text-gold-300"><path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"></path><path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"></path></svg>
+                    <span>Buka Undangan</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         TOMBOL FLOATING MUSIK & NAVIGASI CEPAT
+         ===================================================================== -->
+    <div id="floating-controls" class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
+        <!-- Label Status Lagu (Muncul singkat saat lagu diganti/diputar) -->
+        <div id="music-status-pill" class="hidden bg-white/95 backdrop-blur-md border border-dusty-200 text-dusty-800 text-[11px] px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5 max-w-[210px]">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+            <span id="current-song-name" class="truncate font-medium">Instrumen Romantis Bunga Biru</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <!-- Tombol Ganti Musik Cepat (Hanya Mode Editor) -->
+            <label class="editor-only cursor-pointer w-11 h-11 rounded-full bg-white hover:bg-dusty-50 text-dusty-700 border border-dusty-200 shadow-lg flex items-center justify-center transition" title="Unggah Musik dari Laptop">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="folder-up" aria-hidden="true" class="lucide lucide-folder-up w-4 h-4"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path><path d="M12 10v6"></path><path d="m9 13 3-3 3 3"></path></svg>
+                <input type="file" id="audio-upload-floating" accept="audio/*" class="hidden">
+            </label>
+
+            <!-- Tombol Play/Pause Musik -->
+            <button id="music-toggle-btn" onclick="toggleMusic()" class="w-12 h-12 rounded-full bg-gradient-to-br from-dusty-700 to-dusty-900 text-white border-2 border-gold-300/70 shadow-xl flex items-center justify-center transition transform hover:scale-105" title="Putar / Jeda Musik">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="disc-3" aria-hidden="true" id="music-icon" class="lucide lucide-disc-3 w-5 h-5 text-gold-300"><circle cx="12" cy="12" r="10"></circle><path d="M6 12c0-1.7.7-3.2 1.8-4.2"></path><circle cx="12" cy="12" r="2"></circle><path d="M18 12c0 1.7-.7 3.2-1.8 4.2"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         KONTEN UTAMA UNDANGAN DIGITAL (TANPA FOTO — TEMA BUNGA BIRU)
+         ===================================================================== -->
+    <main class="max-w-3xl mx-auto px-3 sm:px-6 py-8 sm:py-12 pb-28">
+        <article class="relative bg-white/95 backdrop-blur-sm rounded-[2rem] border border-dusty-200/90 invitation-card overflow-hidden">
+            
+            <!-- Ornamen Bunga Sudut Atas Kiri & Kanan -->
+            <svg class="absolute top-0 left-0 w-40 h-40 sm:w-56 sm:h-56 pointer-events-none floral-sway" viewBox="0 0 200 200">
+                <use href="#floral-corner-bouquet"></use>
+            </svg>
+            <svg class="absolute top-0 right-0 w-40 h-40 sm:w-56 sm:h-56 pointer-events-none scale-x-[-1] floral-sway-reverse" viewBox="0 0 200 200">
+                <use href="#floral-corner-bouquet"></use>
+            </svg>
+
+            <!-- 1. HERO HEADER SECTION -->
+            <section class="relative pt-24 sm:pt-28 pb-12 px-6 sm:px-14 text-center">
+                <p data-editable="true" data-key="heroTagline" class="text-xs uppercase tracking-[0.3em] text-dusty-500 font-semibold mb-3" contenteditable="true">Walimatul Ursy</p>
+                <h2 data-editable="true" data-key="heroNames" class="font-script text-5xl sm:text-7xl text-dusty-900 mb-3" contenteditable="true">Nia &amp; Irfan</h2>
+                <p data-editable="true" data-key="heroSubtext" class="font-serif italic text-lg sm:text-xl text-dusty-700 max-w-md mx-auto" contenteditable="true">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu cenderung dan merasa tenteram kepadanya."</p>
+                <p data-editable="true" data-key="heroVerseRef" class="text-xs font-semibold tracking-widest uppercase text-gold-600 mt-3" contenteditable="true">— QS. Ar-Rum : 21 —</p>
+
+                <!-- Divider Bunga Biru -->
+                <svg class="w-64 sm:w-80 h-10 mx-auto mt-8" viewBox="0 0 300 40">
+                    <use href="#floral-divider"></use>
+                </svg>
+            </section>
+
+            <!-- 2. SALAM PEMBUKA & PROFIL MEMPELAI (TANPA FOTO - MONOGRAM BOTANICAL) -->
+            <section class="px-6 sm:px-14 py-8 text-center">
+                <p data-editable="true" data-key="salamOpening" class="font-serif text-xl sm:text-2xl font-semibold text-dusty-800 mb-3" contenteditable="true">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+                <p data-editable="true" data-key="invitationIntro" class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto mb-10" contenteditable="true">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir memberikan doa restu pada acara pernikahan putra-putri kami:</p>
+
+                <!-- Grid Mempelai Wanita & Pria (Tanpa Foto, Menggunakan Crest Bunga Biru) -->
+                <div class="grid grid-cols-1 md:grid-cols-11 gap-8 items-center">
+                    <!-- Mempelai Wanita -->
+                    <div class="md:col-span-5 bg-dusty-50/70 border border-dusty-200/80 rounded-3xl p-6 sm:p-7 relative">
+                        <!-- Crest Inisial Wanita -->
+                        <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white border border-dusty-300 flex items-center justify-center relative shadow-xs">
+                            <div class="absolute inset-1 rounded-full border border-gold-400/60"></div>
+                            <span data-editable="true" data-key="brideInitial" class="font-serif text-3xl font-semibold text-dusty-800" contenteditable="true">N</span>
+                        </div>
+                        <h3 data-editable="true" data-key="brideFullName" class="font-script text-4xl text-dusty-900 mb-1" contenteditable="true">Nia Rahmawati, S.Pd.</h3>
+                        <p data-editable="true" data-key="brideParentsLabel" class="text-xs uppercase tracking-wider text-gold-600 font-semibold mb-2" contenteditable="true">Putri Pertama dari</p>
+                        <p data-editable="true" data-key="brideParents" class="font-serif text-base sm:text-lg text-dusty-800 leading-snug" contenteditable="true">Bapak H. Ahmad Fauzi &amp;<br>Ibu Hj. Siti Aminah</p>
+                    </div>
+
+                    <!-- Simbol "&" Tengah -->
+                    <div class="md:col-span-1 flex items-center justify-center">
+                        <span class="font-script text-5xl text-gold-500 select-none">&amp;</span>
+                    </div>
+
+                    <!-- Mempelai Pria -->
+                    <div class="md:col-span-5 bg-dusty-50/70 border border-dusty-200/80 rounded-3xl p-6 sm:p-7 relative">
+                        <!-- Crest Inisial Pria -->
+                        <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white border border-dusty-300 flex items-center justify-center relative shadow-xs">
+                            <div class="absolute inset-1 rounded-full border border-gold-400/60"></div>
+                            <span data-editable="true" data-key="groomInitial" class="font-serif text-3xl font-semibold text-dusty-800" contenteditable="true">I</span>
+                        </div>
+                        <h3 data-editable="true" data-key="groomFullName" class="font-script text-4xl text-dusty-900 mb-1" contenteditable="true">Irfan Maulana, S.T.</h3>
+                        <p data-editable="true" data-key="groomParentsLabel" class="text-xs uppercase tracking-wider text-gold-600 font-semibold mb-2" contenteditable="true">Putra Kedua dari</p>
+                        <p data-editable="true" data-key="groomParents" class="font-serif text-base sm:text-lg text-dusty-800 leading-snug" contenteditable="true">Bapak Drs. Hendra Wijaya &amp;<br>Ibu Ratna Dewi</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. HITUNG MUNDUR (COUNTDOWN TIMER) -->
+            <section class="px-6 sm:px-14 py-8">
+                <div class="bg-gradient-to-br from-dusty-800 via-dusty-700 to-dusty-900 rounded-3xl p-6 sm:p-8 text-center text-white shadow-lg relative overflow-hidden">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <p class="text-xs uppercase tracking-[0.25em] text-dusty-200">Menuju Hari Bahagia</p>
+                        <!-- Tombol Ubah Tanggal Countdown (Editor Only) -->
+                        <button onclick="openDateModal()" class="editor-only px-2 py-0.5 rounded-md bg-white/15 hover:bg-white/25 text-[10px] text-gold-300 border border-white/20 transition">
+                            Ubah Waktu
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+                        <div class="bg-white/10 backdrop-blur-xs border border-white/15 rounded-2xl py-3 px-2">
+                            <span id="cd-days" class="block font-serif text-2xl sm:text-4xl font-bold text-white">26</span>
+                            <span class="text-[11px] uppercase tracking-wider text-dusty-200">Hari</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-xs border border-white/15 rounded-2xl py-3 px-2">
+                            <span id="cd-hours" class="block font-serif text-2xl sm:text-4xl font-bold text-white">15</span>
+                            <span class="text-[11px] uppercase tracking-wider text-dusty-200">Jam</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-xs border border-white/15 rounded-2xl py-3 px-2">
+                            <span id="cd-minutes" class="block font-serif text-2xl sm:text-4xl font-bold text-white">32</span>
+                            <span class="text-[11px] uppercase tracking-wider text-dusty-200">Menit</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-xs border border-white/15 rounded-2xl py-3 px-2">
+                            <span id="cd-seconds" class="block font-serif text-2xl sm:text-4xl font-bold text-gold-300">51</span>
+                            <span class="text-[11px] uppercase tracking-wider text-dusty-200">Detik</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. RANGKAIAN ACARA & TOMBOL GOOGLE MAPS -->
+            <section class="px-6 sm:px-14 py-8 text-center">
+                <svg class="w-64 sm:w-80 h-10 mx-auto mb-6" viewBox="0 0 300 40">
+                    <use href="#floral-divider"></use>
+                </svg>
+
+                <h2 data-editable="true" data-key="eventsHeading" class="font-script text-4xl sm:text-5xl text-dusty-900 mb-2" contenteditable="true">Rangkaian Acara</h2>
+                <p data-editable="true" data-key="eventsSubheading" class="text-sm text-slate-500 mb-8" contenteditable="true">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Kartu Akad Nikah -->
+                    <div class="bg-mist/80 border border-dusty-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-white border border-dusty-200 text-dusty-700 flex items-center justify-center shadow-xs">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="heart-handshake" aria-hidden="true" class="lucide lucide-heart-handshake w-6 h-6 text-dusty-600"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg>
+                            </div>
+                            <h3 data-editable="true" data-key="akadTitle" class="font-serif text-2xl sm:text-3xl font-bold text-dusty-900 mb-3" contenteditable="true">Akad Nikah</h3>
+                            <div class="space-y-1.5 text-sm text-dusty-800 mb-5">
+                                <p data-editable="true" data-key="akadDate" class="font-semibold text-dusty-700" contenteditable="true">Sabtu, 20 Desember 2026</p>
+                                <p data-editable="true" data-key="akadTime" class="text-slate-600" contenteditable="true">Pukul 08.00 – 10.00 WIB</p>
+                            </div>
+                            <div class="border-t border-dusty-200/80 pt-4 mb-6">
+                                <p data-editable="true" data-key="akadVenue" class="font-serif font-bold text-lg text-dusty-900 mb-1" contenteditable="true">Masjid Agung Al-Azhar</p>
+                                <p data-editable="true" data-key="akadAddress" class="text-xs sm:text-sm text-slate-600 leading-relaxed" contenteditable="true">Jl. Sisingamangaraja No. 1, Kebayoran Baru, Jakarta Selatan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-2">
+                            <a id="akad-maps-btn" href="https://maps.google.com/?q=Masjid+Agung+Al+Azhar+Jakarta" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-dusty-700 hover:bg-dusty-800 text-white text-xs sm:text-sm font-medium transition shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-4 h-4 text-gold-300"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <span id="akad-maps-label">Buka Lokasi Akad (Maps)</span>
+                            </a>
+                            <button onclick="openMapsModal('akad')" class="editor-only text-[11px] text-dusty-600 hover:text-dusty-900 underline flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="edit-3" aria-hidden="true" class="lucide lucide-edit-3 w-3 h-3"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg> Ganti Link Maps Akad
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Resepsi -->
+                    <div class="bg-mist/80 border border-dusty-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-white border border-dusty-200 text-dusty-700 flex items-center justify-center shadow-xs">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-6 h-6 text-gold-500"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                            </div>
+                            <h3 data-editable="true" data-key="resepsiTitle" class="font-serif text-2xl sm:text-3xl font-bold text-dusty-900 mb-3" contenteditable="true">Resepsi Pernikahan</h3>
+                            <div class="space-y-1.5 text-sm text-dusty-800 mb-5">
+                                <p data-editable="true" data-key="resepsiDate" class="font-semibold text-dusty-700" contenteditable="true">Sabtu, 20 Desember 2026</p>
+                                <p data-editable="true" data-key="resepsiTime" class="text-slate-600" contenteditable="true">Pukul 11.00 – 14.00 WIB</p>
+                            </div>
+                            <div class="border-t border-dusty-200/80 pt-4 mb-6">
+                                <p data-editable="true" data-key="resepsiVenue" class="font-serif font-bold text-lg text-dusty-900 mb-1" contenteditable="true">Aula Buya Hamka</p>
+                                <p data-editable="true" data-key="resepsiAddress" class="text-xs sm:text-sm text-slate-600 leading-relaxed" contenteditable="true">Kompleks Masjid Agung Al-Azhar, Kebayoran Baru, Jakarta Selatan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-2">
+                            <a id="resepsi-maps-btn" href="https://maps.google.com/?q=Aula+Buya+Hamka+Al+Azhar" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-dusty-700 hover:bg-dusty-800 text-white text-xs sm:text-sm font-medium transition shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-4 h-4 text-gold-300"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <span id="resepsi-maps-label">Buka Lokasi Resepsi (Maps)</span>
+                            </a>
+                            <button onclick="openMapsModal('resepsi')" class="editor-only text-[11px] text-dusty-600 hover:text-dusty-900 underline flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="edit-3" aria-hidden="true" class="lucide lucide-edit-3 w-3 h-3"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg> Ganti Link Maps Resepsi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. BAGIAN BLOK TEKS TAMBAHAN DINAMIS (FITUR TAMBAH TEKS) -->
+            <section id="custom-text-section" class="px-6 sm:px-14 py-4">
+                <div id="custom-blocks-container" class="space-y-5"><div class="relative group bg-dusty-50/80 border border-dusty-200 rounded-3xl p-6 text-center transition">
+                    <button onclick="deleteCustomBlock('block-default-1')" class="editor-only absolute top-3 right-3 w-7 h-7 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 flex items-center justify-center shadow-xs transition" title="Hapus blok teks ini">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trash-2" aria-hidden="true" class="lucide lucide-trash-2 w-3.5 h-3.5"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                <h3 contenteditable="true" data-block-idx="0" data-field="title" class="font-serif text-xl sm:text-2xl font-bold text-dusty-900 mb-2" data-editable="true">Turut Mengundang</h3><p contenteditable="true" data-block-idx="0" data-field="body" class="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line" data-editable="true">Keluarga Besar Bpk. H. Ahmad Fauzi (Jakarta)
+Keluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)</p></div></div>
+
+                <!-- Tombol Cepat Tambah Blok Teks di Dalam Kanvas (Editor Only) -->
+                <div class="editor-only mt-5 text-center">
+                    <button onclick="openAddTextModal()" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-dashed border-dusty-400 bg-dusty-50/70 hover:bg-dusty-100 text-dusty-700 text-xs font-medium transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" aria-hidden="true" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                        <span>Tambah Blok Teks / Catatan Khusus (Turut Mengundang, Dresscode, dll)</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 6. AMPLOP DIGITAL (TANDA KASIH) -->
+            <section class="px-6 sm:px-14 py-8 text-center">
+                <svg class="w-64 sm:w-80 h-10 mx-auto mb-6" viewBox="0 0 300 40">
+                    <use href="#floral-divider"></use>
+                </svg>
+
+                <h2 data-editable="true" data-key="giftHeading" class="font-script text-4xl sm:text-5xl text-dusty-900 mb-2" contenteditable="true">Tanda Kasih</h2>
+                <p data-editable="true" data-key="giftDesc" class="text-sm text-slate-600 max-w-lg mx-auto mb-6 leading-relaxed" contenteditable="true">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara nontunai melalui rekening berikut:</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+                    <!-- Rekening 1 -->
+                    <div class="bg-gradient-to-br from-dusty-50 to-white border border-dusty-200 rounded-2xl p-5 text-left shadow-xs">
+                        <div class="flex items-center justify-between mb-3">
+                            <span data-editable="true" data-key="bank1Name" class="font-bold text-sm tracking-wider text-dusty-800 uppercase" contenteditable="true">BANK BCA</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="credit-card" aria-hidden="true" class="lucide lucide-credit-card w-5 h-5 text-gold-500"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line><path d="M6 14h2"></path></svg>
+                        </div>
+                        <p id="rek-1" data-editable="true" data-key="bank1Number" class="font-serif text-xl sm:text-2xl font-bold text-dusty-900 tracking-wide mb-1" contenteditable="true">7310928412</p>
+                        <p data-editable="true" data-key="bank1Holder" class="text-xs text-slate-500 mb-4" contenteditable="true">a.n. Nia Rahmawati</p>
+                        <button onclick="copyBankNumber('rek-1')" class="w-full py-2 px-3 rounded-xl bg-white hover:bg-dusty-100 text-dusty-800 border border-dusty-200 text-xs font-medium inline-flex items-center justify-center gap-1.5 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="copy" aria-hidden="true" class="lucide lucide-copy w-3.5 h-3.5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                            <span>Salin Nomor Rekening</span>
+                        </button>
+                    </div>
+
+                    <!-- Rekening 2 -->
+                    <div class="bg-gradient-to-br from-dusty-50 to-white border border-dusty-200 rounded-2xl p-5 text-left shadow-xs">
+                        <div class="flex items-center justify-between mb-3">
+                            <span data-editable="true" data-key="bank2Name" class="font-bold text-sm tracking-wider text-dusty-800 uppercase" contenteditable="true">BANK MANDIRI</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="credit-card" aria-hidden="true" class="lucide lucide-credit-card w-5 h-5 text-gold-500"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line><path d="M6 14h2"></path></svg>
+                        </div>
+                        <p id="rek-2" data-editable="true" data-key="bank2Number" class="font-serif text-xl sm:text-2xl font-bold text-dusty-900 tracking-wide mb-1" contenteditable="true">1260009812345</p>
+                        <p data-editable="true" data-key="bank2Holder" class="text-xs text-slate-500 mb-4" contenteditable="true">a.n. Irfan Maulana</p>
+                        <button onclick="copyBankNumber('rek-2')" class="w-full py-2 px-3 rounded-xl bg-white hover:bg-dusty-100 text-dusty-800 border border-dusty-200 text-xs font-medium inline-flex items-center justify-center gap-1.5 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="copy" aria-hidden="true" class="lucide lucide-copy w-3.5 h-3.5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                            <span>Salin Nomor Rekening</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. UCAPAN & DOA RESTU (RSVP TAMU) -->
+            <section class="px-6 sm:px-14 py-8">
+                <div class="bg-dusty-50/80 border border-dusty-200 rounded-3xl p-6 sm:p-8">
+                    <div class="text-center mb-6">
+                        <h2 data-editable="true" data-key="wishesHeading" class="font-script text-4xl sm:text-5xl text-dusty-900 mb-1" contenteditable="true">Ucapan &amp; Doa Restu</h2>
+                        <p class="text-xs sm:text-sm text-slate-600">Kirimkan doa terbaik dan konfirmasi kehadiran Anda untuk kedua mempelai</p>
+                    </div>
+
+                    <form id="wishes-form" onsubmit="submitWish(event)" class="space-y-3.5 max-w-lg mx-auto mb-8">
+                        <div>
+                            <input type="text" id="wish-name" required="" placeholder="Nama Anda" class="w-full px-4 py-2.5 rounded-xl bg-white border border-dusty-200 text-sm focus:outline-none focus:border-dusty-500">
+                        </div>
+                        <div>
+                            <select id="wish-attendance" class="w-full px-4 py-2.5 rounded-xl bg-white border border-dusty-200 text-sm text-dusty-900 focus:outline-none focus:border-dusty-500">
+                                <option value="Hadir">InsyaAllah Hadir</option>
+                                <option value="Masih Ragu">Masih Ragu</option>
+                                <option value="Berhalangan">Maaf, Berhalangan Hadir</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea id="wish-message" rows="3" required="" placeholder="Tuliskan ucapan &amp; doa restu untuk Nia &amp; Irfan..." class="w-full px-4 py-2.5 rounded-xl bg-white border border-dusty-200 text-sm focus:outline-none focus:border-dusty-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 rounded-full bg-dusty-700 hover:bg-dusty-800 text-white text-sm font-medium transition shadow-sm flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="send" aria-hidden="true" class="lucide lucide-send w-4 h-4"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                            <span>Kirim Ucapan</span>
+                        </button>
+                    </form>
+
+                    <!-- Daftar Ucapan Tamu -->
+                    <div id="wishes-list" class="space-y-3 max-w-lg mx-auto max-h-72 overflow-y-auto pr-1"><div class="bg-white border border-dusty-100 rounded-2xl p-4 shadow-2xs">
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <span class="font-semibold text-xs sm:text-sm text-dusty-900">Ayu Lestari</span>
+                        <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Hadir</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-1.5">Selamat menempuh hidup baru Nia &amp; Irfan! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah selamanya.</p>
+                    <span class="text-[10px] text-slate-400">Baru saja</span>
+                </div><div class="bg-white border border-dusty-100 rounded-2xl p-4 shadow-2xs">
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <span class="font-semibold text-xs sm:text-sm text-dusty-900">Rizky Pratama</span>
+                        <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Hadir</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-1.5">Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair. Lancar sampai hari H ya!</p>
+                    <span class="text-[10px] text-slate-400">1 jam lalu</span>
+                </div></div>
+                </div>
+            </section>
+
+            <!-- 8. PENUTUP UNDANGAN -->
+            <footer class="relative pt-8 pb-24 sm:pb-28 px-6 sm:px-14 text-center">
+                <p data-editable="true" data-key="closingText" class="text-sm sm:text-base text-slate-600 max-w-lg mx-auto leading-relaxed mb-4" contenteditable="true">Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
+                <p data-editable="true" data-key="salamClosing" class="font-serif text-lg sm:text-xl font-semibold text-dusty-800 mb-6" contenteditable="true">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+                <p class="text-xs uppercase tracking-[0.25em] text-dusty-500 mb-2">Kami yang berbahagia,</p>
+                <h3 data-editable="true" data-key="footerCouple" class="font-script text-4xl sm:text-5xl text-dusty-900" contenteditable="true">Nia &amp; Irfan</h3>
+
+                <!-- Ornamen Bunga Sudut Bawah Kiri & Kanan -->
+                <svg class="absolute bottom-0 left-0 w-40 h-40 sm:w-56 sm:h-56 pointer-events-none scale-y-[-1] floral-sway-reverse" viewBox="0 0 200 200">
+                    <use href="#floral-corner-bouquet"></use>
+                </svg>
+                <svg class="absolute bottom-0 right-0 w-40 h-40 sm:w-56 sm:h-56 pointer-events-none scale-[-1] floral-sway" viewBox="0 0 200 200">
+                    <use href="#floral-corner-bouquet"></use>
+                </svg>
+            </footer>
+
+        </article>
+    </main>
+
+    <!-- =====================================================================
+         MODAL 1: TAMBAH BLOK TEKS BARU
+         ===================================================================== -->
+    <div id="add-text-modal" class="hidden fixed inset-0 z-[80] bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-dusty-200">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-2xl font-bold text-dusty-900">Tambah Blok Teks</h3>
+                <button onclick="closeModal('add-text-modal')" class="p-1.5 rounded-full hover:bg-slate-100 text-slate-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-5 h-5"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-dusty-800 mb-1">Judul Blok (Opsional)</label>
+                    <input type="text" id="new-block-title" placeholder="Contoh: Turut Mengundang / Dresscode / Protokol" class="w-full px-3.5 py-2.5 rounded-xl border border-dusty-200 text-sm focus:outline-none focus:border-dusty-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-dusty-800 mb-1">Isi Teks</label>
+                    <textarea id="new-block-body" rows="4" placeholder="Tuliskan informasi tambahan di sini..." class="w-full px-3.5 py-2.5 rounded-xl border border-dusty-200 text-sm focus:outline-none focus:border-dusty-500"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-dusty-800 mb-1">Gaya Tampilan</label>
+                    <select id="new-block-style" class="w-full px-3.5 py-2.5 rounded-xl border border-dusty-200 text-sm bg-white">
+                        <option value="card">Kartu Bunga Biru Lembut (Berbingkai)</option>
+                        <option value="quote">Kutipan / Catatan Tengah (Tanpa Bingkai)</option>
+                    </select>
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button onclick="closeModal('add-text-modal')" class="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-100">Batal</button>
+                    <button onclick="addNewTextBlock()" class="px-5 py-2 rounded-xl text-xs font-semibold bg-dusty-700 hover:bg-dusty-800 text-white">Tambahkan ke Undangan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 2: ATUR LINK GOOGLE MAPS
+         ===================================================================== -->
+    <div id="maps-modal" class="hidden fixed inset-0 z-[80] bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-dusty-200">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-2xl font-bold text-dusty-900">Pengaturan Tombol Google Maps</h3>
+                <button onclick="closeModal('maps-modal')" class="p-1.5 rounded-full hover:bg-slate-100 text-slate-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-5 h-5"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <!-- Pengaturan Akad -->
+                <div class="p-3.5 rounded-2xl bg-dusty-50 border border-dusty-200 space-y-2.5">
+                    <p class="text-xs font-bold uppercase tracking-wider text-dusty-800">1. Lokasi Akad Nikah</p>
+                    <div>
+                        <label class="block text-[11px] text-slate-600 mb-1">Teks Tombol Akad</label>
+                        <input type="text" id="input-akad-label" class="w-full px-3 py-2 rounded-xl bg-white border border-dusty-200 text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-600 mb-1">Link URL Google Maps Akad</label>
+                        <input type="url" id="input-akad-url" placeholder="https://maps.app.goo.gl/..." class="w-full px-3 py-2 rounded-xl bg-white border border-dusty-200 text-xs">
+                    </div>
+                </div>
+
+                <!-- Pengaturan Resepsi -->
+                <div class="p-3.5 rounded-2xl bg-dusty-50 border border-dusty-200 space-y-2.5">
+                    <p class="text-xs font-bold uppercase tracking-wider text-dusty-800">2. Lokasi Resepsi</p>
+                    <div>
+                        <label class="block text-[11px] text-slate-600 mb-1">Teks Tombol Resepsi</label>
+                        <input type="text" id="input-resepsi-label" class="w-full px-3 py-2 rounded-xl bg-white border border-dusty-200 text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-600 mb-1">Link URL Google Maps Resepsi</label>
+                        <input type="url" id="input-resepsi-url" placeholder="https://maps.app.goo.gl/..." class="w-full px-3 py-2 rounded-xl bg-white border border-dusty-200 text-xs">
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-2 pt-2">
+                    <button onclick="closeModal('maps-modal')" class="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-100">Batal</button>
+                    <button onclick="saveMapsSettings()" class="px-5 py-2 rounded-xl text-xs font-semibold bg-dusty-700 hover:bg-dusty-800 text-white">Simpan Link Maps</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 3: UBAH WAKTU COUNTDOWN
+         ===================================================================== -->
+    <div id="date-modal" class="hidden fixed inset-0 z-[80] bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-dusty-200">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-bold text-dusty-900">Atur Tanggal Hitung Mundur</h3>
+                <button onclick="closeModal('date-modal')" class="p-1.5 rounded-full hover:bg-slate-100 text-slate-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-5 h-5"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-dusty-800 mb-1">Tanggal &amp; Jam Acara</label>
+                    <input type="datetime-local" id="countdown-datetime-input" class="w-full px-3.5 py-2.5 rounded-xl border border-dusty-200 text-sm">
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button onclick="closeModal('date-modal')" class="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-100">Batal</button>
+                    <button onclick="saveCountdownDate()" class="px-5 py-2 rounded-xl text-xs font-semibold bg-dusty-700 hover:bg-dusty-800 text-white">Terapkan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 4: SEBAR LINK ONLINE (MODE TAMU TERKUNCI / VIEW-ONLY)
+         ===================================================================== -->
+    <div id="share-modal" class="hidden fixed inset-0 z-[80] bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-dusty-200 my-auto">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-xl bg-dusty-100 text-dusty-700 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" aria-hidden="true" class="lucide lucide-shield-check w-5 h-5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-dusty-900 leading-none">Sebar Link Online</h3>
+                        <p class="text-[11px] text-emerald-700 font-medium mt-1">Mode Tamu Terkunci (Orang lain tidak bisa mengedit)</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('share-modal')" class="p-1.5 rounded-full hover:bg-slate-100 text-slate-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-5 h-5"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="space-y-4 mt-4">
+                <!-- Input Nama Tamu Spesifik -->
+                <div>
+                    <label class="block text-xs font-semibold text-dusty-800 mb-1">Nama Tamu yang Diundang (Opsional)</label>
+                    <input type="text" id="share-guest-name" oninput="updateGeneratedShareLink()" placeholder="Contoh: Bpk. Budi Santoso &amp; Keluarga" class="w-full px-3.5 py-2.5 rounded-xl border border-dusty-200 text-sm focus:outline-none focus:border-dusty-500">
+                    <p class="text-[11px] text-slate-500 mt-1">Nama tamu akan otomatis muncul di sampul depan undangan.</p>
+                </div>
+
+                <!-- Hasil Link Mode Tamu -->
+                <div class="p-3.5 rounded-2xl bg-dusty-50 border border-dusty-200">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-xs font-bold text-dusty-800 flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="lock" aria-hidden="true" class="lucide lucide-lock w-3.5 h-3.5 text-dusty-600"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            Link Khusus Tamu (Read-Only)
+                        </span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold">Aman &amp; Terkunci</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" id="generated-guest-link" readonly="" class="w-full px-3 py-2 rounded-xl bg-white border border-dusty-200 text-xs text-slate-600 select-all">
+                        <button onclick="copyGeneratedLink()" class="px-4 py-2 rounded-xl bg-dusty-700 hover:bg-dusty-800 text-white text-xs font-semibold shrink-0 flex items-center gap-1.5 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="copy" aria-hidden="true" class="lucide lucide-copy w-3.5 h-3.5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                            <span>Salin</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Opsi Kirim Langsung ke WhatsApp -->
+                <button onclick="shareToWhatsApp()" class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition shadow-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="message-circle" aria-hidden="true" class="lucide lucide-message-circle w-4 h-4"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg>
+                    <span>Kirim Undangan via WhatsApp</span>
+                </button>
+
+                <!-- Divider Ekspor Mandiri -->
+                <div class="border-t border-slate-200 pt-4">
+                    <div class="flex items-start gap-2.5 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="globe" aria-hidden="true" class="lucide lucide-globe w-4 h-4 text-dusty-600 shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                        <div class="text-xs text-slate-600 leading-relaxed">
+                            <strong class="text-dusty-900">Ingin meng-hosting secara permanen (Netlify / Vercel / GitHub Pages)?</strong><br>
+                            Unduh file HTML mandiri di bawah ini. Seluruh perubahan teks, link Maps, dan musik Anda sudah dikunci permanen sebagai tampilan tamu.
+                        </div>
+                    </div>
+                    <button onclick="downloadStandaloneGuestHTML()" class="w-full py-2.5 px-4 rounded-xl bg-dusty-50 hover:bg-dusty-100 text-dusty-900 border border-dusty-300 text-xs font-semibold flex items-center justify-center gap-2 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="download" aria-hidden="true" class="lucide lucide-download w-4 h-4 text-dusty-700"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                        <span>Download File Web Siap Upload (.html)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         JAVASCRIPT LOGIKA LENGKAP (EDITOR, MUSIK WEB AUDIO & UPLOAD, SHARE)
+         ===================================================================== -->
+    <script>
+        // --- 1. STATE APLIKASI & DATA DEFAULT ---
+        const DEFAULT_STATE = {
+            texts: {
+                coverSubtitle: "The Wedding Of",
+                monogram: "N & I",
+                coupleDisplay: "Nia & Irfan",
+                coverDate: "Sabtu, 20 Desember 2026",
+                heroTagline: "Walimatul Ursy",
+                heroNames: "Nia & Irfan",
+                heroSubtext: "\"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu cenderung dan merasa tenteram kepadanya.\"",
+                heroVerseRef: "— QS. Ar-Rum : 21 —",
+                salamOpening: "Assalamu’alaikum Warahmatullahi Wabarakatuh",
+                invitationIntro: "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir memberikan doa restu pada acara pernikahan putra-putri kami:",
+                brideInitial: "N",
+                brideFullName: "Nia Rahmawati, S.Pd.",
+                brideParentsLabel: "Putri Pertama dari",
+                brideParents: "Bapak H. Ahmad Fauzi &\nIbu Hj. Siti Aminah",
+                groomInitial: "I",
+                groomFullName: "Irfan Maulana, S.T.",
+                groomParentsLabel: "Putra Kedua dari",
+                groomParents: "Bapak Drs. Hendra Wijaya &\nIbu Ratna Dewi",
+                eventsHeading: "Rangkaian Acara",
+                eventsSubheading: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir",
+                akadTitle: "Akad Nikah",
+                akadDate: "Sabtu, 20 Desember 2026",
+                akadTime: "Pukul 08.00 – 10.00 WIB",
+                akadVenue: "Masjid Agung Al-Azhar",
+                akadAddress: "Jl. Sisingamangaraja No. 1, Kebayoran Baru, Jakarta Selatan",
+                resepsiTitle: "Resepsi Pernikahan",
+                resepsiDate: "Sabtu, 20 Desember 2026",
+                resepsiTime: "Pukul 11.00 – 14.00 WIB",
+                resepsiVenue: "Aula Buya Hamka",
+                resepsiAddress: "Kompleks Masjid Agung Al-Azhar, Kebayoran Baru, Jakarta Selatan",
+                giftHeading: "Tanda Kasih",
+                giftDesc: "Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara nontunai melalui rekening berikut:",
+                bank1Name: "BANK BCA",
+                bank1Number: "7310928412",
+                bank1Holder: "a.n. Nia Rahmawati",
+                bank2Name: "BANK MANDIRI",
+                bank2Number: "1260009812345",
+                bank2Holder: "a.n. Irfan Maulana",
+                wishesHeading: "Ucapan & Doa Restu",
+                closingText: "Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i, kami mengucapkan terima kasih yang sebesar-besarnya.",
+                salamClosing: "Wassalamu’alaikum Warahmatullahi Wabarakatuh",
+                footerCouple: "Nia & Irfan"
+            },
+            maps: {
+                akadLabel: "Buka Lokasi Akad (Maps)",
+                akadUrl: "https://maps.google.com/?q=Masjid+Agung+Al+Azhar+Jakarta",
+                resepsiLabel: "Buka Lokasi Resepsi (Maps)",
+                resepsiUrl: "https://maps.google.com/?q=Aula+Buya+Hamka+Al+Azhar"
+            },
+            countdownTarget: "2026-12-20T08:00",
+            customBlocks: [
+                {
+                    id: "block-default-1",
+                    title: "Turut Mengundang",
+                    body: "Keluarga Besar Bpk. H. Ahmad Fauzi (Jakarta)\nKeluarga Besar Bpk. Drs. Hendra Wijaya (Bandung)",
+                    style: "card"
+                }
+            ],
+            wishes: [
+                {
+                    name: "Ayu Lestari",
+                    attendance: "Hadir",
+                    message: "Selamat menempuh hidup baru Nia & Irfan! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah selamanya.",
+                    time: "Baru saja"
+                },
+                {
+                    name: "Rizky Pratama",
+                    attendance: "Hadir",
+                    message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair. Lancar sampai hari H ya!",
+                    time: "1 jam lalu"
+                }
+            ],
+            songName: "Instrumen Romantis Bunga Biru"
+        };
+
+        let appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        let isGuestMode = false;
+        let isPlayingMusic = false;
+        let customAudioElement = null;
+        let customAudioDataUrl = null; // Menyimpan base64 audio jika diunggah untuk ekspor HTML
+
+        // --- 2. INISIALISASI SAAT HALAMAN DIMUAT ---
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            parseUrlAndLoadState();
+            applyStateToDOM();
+            setupInlineEditing();
+            setupAudioUploads();
+            startCountdownTimer();
+        });
+
+        // --- 3. PARSING PARAMETER URL (?mode=guest, ?to=Nama+Tamu, & #data=...) ---
+        function parseUrlAndLoadState() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+
+            // Cek apakah dibuka dalam Mode Tamu (Read-Only Terkunci)
+            if (urlParams.get('mode') === 'guest' || hashParams.get('mode') === 'guest' || document.body.dataset.lockedGuest === 'true') {
+                isGuestMode = true;
+            }
+
+            // Cek apakah ada data state yang di-encode di URL (dari fitur Sebar Link Online)
+            const encodedData = hashParams.get('data') || urlParams.get('data');
+            if (encodedData) {
+                try {
+                    const jsonStr = decodeURIComponent(escape(atob(encodedData)));
+                    const parsed = JSON.parse(jsonStr);
+                    appState = { ...appState, ...parsed };
+                } catch (e) {
+                    console.warn("Gagal membaca data undangan dari URL, menggunakan data tersimpan.", e);
+                }
+            } else if (!isGuestMode) {
+                // Muat dari localStorage jika di mode editor lokal
+                const savedLocal = localStorage.getItem('blue_floral_wedding_state_v1');
+                if (savedLocal) {
+                    try {
+                        appState = { ...appState, ...JSON.parse(savedLocal) };
+                    } catch (e) {}
+                }
+            }
+
+            // Cek nama tamu dari parameter ?to=Nama+Tamu
+            const guestTo = urlParams.get('to') || hashParams.get('to');
+            if (guestTo && guestTo.trim() !== '') {
+                document.getElementById('guest-name-display').textContent = guestTo.trim();
+                document.getElementById('wish-name').value = guestTo.trim();
+            }
+
+            // Terapkan class mode pada body
+            if (isGuestMode) {
+                document.body.classList.add('guest-mode');
+                document.body.classList.remove('editor-active');
+            } else {
+                document.body.classList.add('editor-active');
+                document.body.classList.remove('guest-mode');
+            }
+        }
+
+        function saveStateToLocal() {
+            if (!isGuestMode) {
+                try {
+                    localStorage.setItem('blue_floral_wedding_state_v1', JSON.stringify(appState));
+                } catch (e) {}
+            }
+        }
+
+        // --- 4. MENERAPKAN STATE KE TAMPILAN DOM ---
+        function applyStateToDOM() {
+            // Terapkan teks statis ber-atribut data-key
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (appState.texts[key] !== undefined) {
+                    el.innerText = appState.texts[key];
+                }
+            });
+
+            // Terapkan link Google Maps
+            const akadBtn = document.getElementById('akad-maps-btn');
+            const akadLabel = document.getElementById('akad-maps-label');
+            if (akadBtn && akadLabel) {
+                akadBtn.href = appState.maps.akadUrl || '#';
+                akadLabel.textContent = appState.maps.akadLabel || 'Buka Lokasi Akad';
+            }
+
+            const resepsiBtn = document.getElementById('resepsi-maps-btn');
+            const resepsiLabel = document.getElementById('resepsi-maps-label');
+            if (resepsiBtn && resepsiLabel) {
+                resepsiBtn.href = appState.maps.resepsiUrl || '#';
+                resepsiLabel.textContent = appState.maps.resepsiLabel || 'Buka Lokasi Resepsi';
+            }
+
+            // Nama lagu
+            document.getElementById('current-song-name').textContent = appState.songName || "Instrumen Romantis Bunga Biru";
+
+            // Render blok teks tambahan
+            renderCustomBlocks();
+
+            // Render ucapan tamu
+            renderWishes();
+        }
+
+        // --- 5. INLINE EDITING (EDIT TEKS LANGSUNG DI KANVAS) ---
+        function setupInlineEditing() {
+            document.querySelectorAll('[data-editable="true"]').forEach(el => {
+                if (!isGuestMode) {
+                    el.setAttribute('contenteditable', 'true');
+                } else {
+                    el.removeAttribute('contenteditable');
+                }
+
+                el.addEventListener('input', () => {
+                    if (isGuestMode) return;
+                    const key = el.getAttribute('data-key');
+                    if (key) {
+                        appState.texts[key] = el.innerText;
+                        saveStateToLocal();
+                    }
+                });
+            });
+        }
+
+        // --- 6. FITUR BUKA UNDANGAN & SISTEM MUSIK (WEB AUDIO API + UPLOAD LAPTOP) ---
+        function openInvitation() {
+            const cover = document.getElementById('cover-overlay');
+            cover.classList.add('opened');
+            if (!isPlayingMusic) {
+                playMusic();
+            }
+        }
+
+        // Synthesizer melodi piano romantis lembut bawaan (tanpa butuh link eksternal)
+        let audioCtx = null;
+        let synthInterval = null;
+
+        function startBuiltInAmbientPiano() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            // Progresi akor lembut Fmaj7 - Em7 - Dm7 - Cmaj7
+            const chords = [
+                [349.23, 440.00, 523.25, 659.25], // Fmaj7
+                [329.63, 392.00, 493.88, 587.33], // Em7
+                [293.66, 349.23, 440.00, 523.25], // Dm7
+                [261.63, 329.63, 392.00, 493.88]  // Cmaj7
+            ];
+            let step = 0;
+
+            const playArpeggio = () => {
+                if (!isPlayingMusic || customAudioElement) return;
+                const chord = chords[Math.floor(step / 4) % chords.length];
+                const freq = chord[step % chord.length];
+                step++;
+
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, now);
+
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.exponentialRampToValueAtTime(0.06, now + 0.15);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start(now);
+                osc.stop(now + 2.5);
+            };
+
+            playArpeggio();
+            clearInterval(synthInterval);
+            synthInterval = setInterval(playArpeggio, 850);
+        }
+
+        function stopBuiltInAmbientPiano() {
+            clearInterval(synthInterval);
+        }
+
+        function playMusic() {
+            isPlayingMusic = true;
+            const icon = document.getElementById('music-icon');
+            const statusPill = document.getElementById('music-status-pill');
+            icon.classList.add('music-spinning');
+            statusPill.classList.remove('hidden');
+
+            if (customAudioElement) {
+                stopBuiltInAmbientPiano();
+                customAudioElement.play().catch(() => {});
+            } else {
+                startBuiltInAmbientPiano();
+            }
+        }
+
+        function pauseMusic() {
+            isPlayingMusic = false;
+            const icon = document.getElementById('music-icon');
+            const statusPill = document.getElementById('music-status-pill');
+            icon.classList.remove('music-spinning');
+            statusPill.classList.add('hidden');
+
+            if (customAudioElement) {
+                customAudioElement.pause();
+            }
+            stopBuiltInAmbientPiano();
+        }
+
+        function toggleMusic() {
+            if (isPlayingMusic) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        }
+
+        // Handler Unggah File Audio dari Laptop
+        function setupAudioUploads() {
+            const inputs = [
+                document.getElementById('audio-upload-input'),
+                document.getElementById('audio-upload-floating')
+            ];
+
+            inputs.forEach(input => {
+                if (!input) return;
+                input.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+
+                    if (!file.type.startsWith('audio/')) {
+                        showToast('Mohon pilih file format audio (.mp3, .wav, .ogg).', 'error');
+                        return;
+                    }
+
+                    // Hentikan audio sebelumnya
+                    if (customAudioElement) {
+                        customAudioElement.pause();
+                    }
+                    stopBuiltInAmbientPiano();
+
+                    const objectUrl = URL.createObjectURL(file);
+                    customAudioElement = new Audio(objectUrl);
+                    customAudioElement.loop = true;
+
+                    // Simpan nama file lagu
+                    const cleanName = file.name.replace(/\.[^/.]+$/, "");
+                    appState.songName = cleanName;
+                    document.getElementById('current-song-name').textContent = cleanName;
+                    saveStateToLocal();
+
+                    // Baca sebagai DataURL jika ukurannya < 4MB agar ikut tersimpan saat ekspor HTML mandiri
+                    if (file.size <= 4 * 1024 * 1024) {
+                        const reader = new FileReader();
+                        reader.onload = (ev) => {
+                            customAudioDataUrl = ev.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        customAudioDataUrl = null;
+                    }
+
+                    playMusic();
+                    showToast(`Musik diganti ke "${cleanName}" dan sedang diputar!`, 'success');
+                });
+            });
+        }
+
+        // --- 7. FITUR TAMBAH BLOK TEKS DINAMIS ---
+        function openAddTextModal() {
+            document.getElementById('new-block-title').value = '';
+            document.getElementById('new-block-body').value = '';
+            document.getElementById('add-text-modal').classList.remove('hidden');
+        }
+
+        function addNewTextBlock() {
+            const title = document.getElementById('new-block-title').value.trim();
+            const body = document.getElementById('new-block-body').value.trim();
+            const style = document.getElementById('new-block-style').value;
+
+            if (!body) {
+                showToast('Isi teks tidak boleh kosong.', 'error');
+                return;
+            }
+
+            const newBlock = {
+                id: 'block-' + Date.now(),
+                title: title,
+                body: body,
+                style: style
+            };
+
+            appState.customBlocks.push(newBlock);
+            saveStateToLocal();
+            renderCustomBlocks();
+            closeModal('add-text-modal');
+            showToast('Blok teks baru berhasil ditambahkan ke undangan!', 'success');
+        }
+
+        function deleteCustomBlock(id) {
+            appState.customBlocks = appState.customBlocks.filter(b => b.id !== id);
+            saveStateToLocal();
+            renderCustomBlocks();
+            showToast('Blok teks dihapus.', 'info');
+        }
+
+        function renderCustomBlocks() {
+            const container = document.getElementById('custom-blocks-container');
+            container.innerHTML = '';
+
+            appState.customBlocks.forEach((block, index) => {
+                const wrapper = document.createElement('div');
+                const isCard = block.style === 'card';
+
+                wrapper.className = isCard
+                    ? 'relative group bg-dusty-50/80 border border-dusty-200 rounded-3xl p-6 text-center transition'
+                    : 'relative group py-4 px-2 text-center transition';
+
+                // Tombol hapus blok (hanya muncul di Mode Editor)
+                const deleteBtnHtml = `
+                    <button onclick="deleteCustomBlock('${block.id}')" class="editor-only absolute top-3 right-3 w-7 h-7 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 flex items-center justify-center shadow-xs transition" title="Hapus blok teks ini">
+                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                `;
+
+                const titleHtml = block.title
+                    ? `<h3 ${!isGuestMode ? 'contenteditable="true"' : ''} data-block-idx="${index}" data-field="title" class="font-serif text-xl sm:text-2xl font-bold text-dusty-900 mb-2">${escapeHtml(block.title)}</h3>`
+                    : '';
+
+                const bodyHtml = `<p ${!isGuestMode ? 'contenteditable="true"' : ''} data-block-idx="${index}" data-field="body" class="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">${escapeHtml(block.body)}</p>`;
+
+                wrapper.innerHTML = deleteBtnHtml + titleHtml + bodyHtml;
+                container.appendChild(wrapper);
+
+                // Dengarkan perubahan inline pada blok dinamis
+                if (!isGuestMode) {
+                    wrapper.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                        el.setAttribute('data-editable', 'true');
+                        el.addEventListener('input', () => {
+                            const idx = parseInt(el.getAttribute('data-block-idx'), 10);
+                            const field = el.getAttribute('data-field');
+                            if (appState.customBlocks[idx]) {
+                                appState.customBlocks[idx][field] = el.innerText;
+                                saveStateToLocal();
+                            }
+                        });
+                    });
+                }
+            });
+
+            lucide.createIcons();
+        }
+
+        // --- 8. FITUR GANTI LINK GOOGLE MAPS ---
+        function openMapsModal() {
+            document.getElementById('input-akad-label').value = appState.maps.akadLabel;
+            document.getElementById('input-akad-url').value = appState.maps.akadUrl;
+            document.getElementById('input-resepsi-label').value = appState.maps.resepsiLabel;
+            document.getElementById('input-resepsi-url').value = appState.maps.resepsiUrl;
+            document.getElementById('maps-modal').classList.remove('hidden');
+        }
+
+        function saveMapsSettings() {
+            const akadLabel = document.getElementById('input-akad-label').value.trim();
+            let akadUrl = document.getElementById('input-akad-url').value.trim();
+            const resepsiLabel = document.getElementById('input-resepsi-label').value.trim();
+            let resepsiUrl = document.getElementById('input-resepsi-url').value.trim();
+
+            if (akadUrl && !/^https?:\/\//i.test(akadUrl)) akadUrl = 'https://' + akadUrl;
+            if (resepsiUrl && !/^https?:\/\//i.test(resepsiUrl)) resepsiUrl = 'https://' + resepsiUrl;
+
+            appState.maps.akadLabel = akadLabel || 'Buka Lokasi Akad (Maps)';
+            appState.maps.akadUrl = akadUrl || 'https://maps.google.com';
+            appState.maps.resepsiLabel = resepsiLabel || 'Buka Lokasi Resepsi (Maps)';
+            appState.maps.resepsiUrl = resepsiUrl || 'https://maps.google.com';
+
+            saveStateToLocal();
+            applyStateToDOM();
+            closeModal('maps-modal');
+            showToast('Tautan tombol Google Maps berhasil diperbarui!', 'success');
+        }
+
+        // --- 9. HITUNG MUNDUR (COUNTDOWN TIMER) ---
+        function openDateModal() {
+            document.getElementById('countdown-datetime-input').value = appState.countdownTarget;
+            document.getElementById('date-modal').classList.remove('hidden');
+        }
+
+        function saveCountdownDate() {
+            const val = document.getElementById('countdown-datetime-input').value;
+            if (val) {
+                appState.countdownTarget = val;
+                saveStateToLocal();
+                closeModal('date-modal');
+                showToast('Waktu hitung mundur berhasil diperbarui!', 'success');
+            }
+        }
+
+        function startCountdownTimer() {
+            const update = () => {
+                const targetTime = new Date(appState.countdownTarget).getTime();
+                const now = Date.now();
+                const diff = Math.max(0, targetTime - now);
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / 1000 / 60) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+
+                document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+                document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+            };
+            update();
+            setInterval(update, 1000);
+        }
+
+        // --- 10. SALIN REKENING & KIRIM UCAPAN ---
+        function copyBankNumber(elementId) {
+            const text = document.getElementById(elementId).innerText.trim();
+            copyTextFallback(text, `Nomor rekening ${text} berhasil disalin!`);
+        }
+
+        function submitWish(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('wish-name');
+            const attInput = document.getElementById('wish-attendance');
+            const msgInput = document.getElementById('wish-message');
+
+            const newWish = {
+                name: nameInput.value.trim(),
+                attendance: attInput.value,
+                message: msgInput.value.trim(),
+                time: "Baru saja"
+            };
+
+            appState.wishes.unshift(newWish);
+            saveStateToLocal();
+            renderWishes();
+
+            msgInput.value = '';
+            showToast('Terima kasih! Ucapan & doa restu Anda telah terkirim.', 'success');
+        }
+
+        function renderWishes() {
+            const list = document.getElementById('wishes-list');
+            list.innerHTML = '';
+
+            appState.wishes.forEach(w => {
+                const badgeColor = w.attendance === 'Hadir'
+                    ? 'bg-emerald-100 text-emerald-800'
+                    : (w.attendance === 'Masih Ragu' ? 'bg-amber-100 text-amber-800' : 'bg-slate-200 text-slate-700');
+
+                const item = document.createElement('div');
+                item.className = 'bg-white border border-dusty-100 rounded-2xl p-4 shadow-2xs';
+                item.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <span class="font-semibold text-xs sm:text-sm text-dusty-900">${escapeHtml(w.name)}</span>
+                        <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full ${badgeColor}">${escapeHtml(w.attendance)}</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-1.5">${escapeHtml(w.message)}</p>
+                    <span class="text-[10px] text-slate-400">${escapeHtml(w.time)}</span>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // --- 11. PRATINJAU MODE TAMU & SEBAR LINK ONLINE (READ-ONLY TERKUNCI) ---
+        function togglePreviewGuestMode() {
+            isGuestMode = true;
+            document.body.classList.add('guest-mode');
+            document.body.classList.remove('editor-active');
+            document.getElementById('preview-exit-banner').classList.remove('hidden');
+            setupInlineEditing();
+            renderCustomBlocks();
+            showToast('Pratinjau Mode Tamu aktif. Semua tombol edit disembunyikan.', 'info');
+        }
+
+        function exitPreviewGuestMode() {
+            isGuestMode = false;
+            document.body.classList.remove('guest-mode');
+            document.body.classList.add('editor-active');
+            document.getElementById('preview-exit-banner').classList.add('hidden');
+            setupInlineEditing();
+            renderCustomBlocks();
+            showToast('Kembali ke Mode Editor.', 'info');
+        }
+
+        function openShareModal() {
+            updateGeneratedShareLink();
+            document.getElementById('share-modal').classList.remove('hidden');
+        }
+
+        function updateGeneratedShareLink() {
+            const guestName = document.getElementById('share-guest-name').value.trim();
+
+            // Encode seluruh state teks, link maps, dan custom blocks ke base64 URL-safe
+            const payload = {
+                texts: appState.texts,
+                maps: appState.maps,
+                countdownTarget: appState.countdownTarget,
+                customBlocks: appState.customBlocks,
+                songName: appState.songName
+            };
+            const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+
+            const baseUrl = window.location.href.split('?')[0].split('#')[0];
+            const query = new URLSearchParams();
+            query.set('mode', 'guest');
+            if (guestName) {
+                query.set('to', guestName);
+            }
+
+            const finalUrl = `${baseUrl}?${query.toString()}#data=${encoded}`;
+            document.getElementById('generated-guest-link').value = finalUrl;
+        }
+
+        function copyGeneratedLink() {
+            const linkVal = document.getElementById('generated-guest-link').value;
+            copyTextFallback(linkVal, 'Link undangan Mode Tamu (Terkunci) berhasil disalin!');
+        }
+
+        function shareToWhatsApp() {
+            const linkVal = document.getElementById('generated-guest-link').value;
+            const guestName = document.getElementById('share-guest-name').value.trim() || 'Bapak/Ibu/Saudara/i';
+            const couple = appState.texts.coupleDisplay || 'Nia & Irfan';
+
+            const message = `Kepada Yth. *${guestName}*\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk hadir dan memberikan doa restu pada acara pernikahan kami:\n\n*${couple}*\n\nSilakan buka tautan undangan digital berikut:\n${linkVal}\n\nMerupakan suatu kebahagiaan bagi kami apabila Anda berkenan hadir.\nTerima kasih.`;
+
+            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Ekspor File HTML Mandiri yang Sudah Terkunci Permanen sebagai Mode Tamu (Siap Upload ke Hosting Gratis)
+        function downloadStandaloneGuestHTML() {
+            // Kloning dokumen saat ini
+            const docClone = document.documentElement.cloneNode(true);
+            const bodyClone = docClone.querySelector('body');
+
+            // Kunci permanen sebagai guest-mode
+            bodyClone.classList.remove('editor-active');
+            bodyClone.classList.add('guest-mode');
+            bodyClone.setAttribute('data-locked-guest', 'true');
+
+            // Hapus semua elemen ber-kelas editor-only & modal editor dari hasil ekspor
+            docClone.querySelectorAll('.editor-only, #add-text-modal, #maps-modal, #date-modal, #share-modal, #preview-exit-banner').forEach(el => el.remove());
+
+            // Hapus atribut contenteditable dari semua elemen
+            docClone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+
+            // Reset cover agar tertutup saat pertama dibuka tamu
+            const coverClone = docClone.querySelector('#cover-overlay');
+            if (coverClone) coverClone.classList.remove('opened');
+
+            // Jika pengguna mengunggah musik dari laptop, sematkan audio tersebut ke dalam file HTML mandiri
+            if (customAudioDataUrl) {
+                const audioScript = docClone.ownerDocument.createElement('script');
+                audioScript.textContent = `
+                    window.addEventListener('DOMContentLoaded', function() {
+                        customAudioElement = new Audio(${JSON.stringify(customAudioDataUrl)});
+                        customAudioElement.loop = true;
+                    });
+                `;
+                bodyClone.appendChild(audioScript);
+            }
+
+            const htmlContent = "<!DOCTYPE html>\n" + docClone.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'undangan-pernikahan-bunga-biru.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast('File HTML Mode Tamu berhasil diunduh! Siap di-upload ke Netlify/Vercel.', 'success');
+        }
+
+        // --- 12. UTILITAS UMUM ---
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function copyTextFallback(text, successMsg) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMsg, 'success');
+            } catch (err) {
+                showToast('Gagal menyalin teks secara otomatis.', 'error');
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+
+            const styles = {
+                success: 'bg-dusty-900 text-white border-gold-400',
+                error: 'bg-rose-900 text-white border-rose-400',
+                info: 'bg-white text-dusty-900 border-dusty-300'
+            };
+
+            toast.className = `pointer-events-auto px-4 py-3 rounded-2xl border shadow-xl text-xs font-medium flex items-center justify-between gap-3 transition-all duration-300 transform translate-y-0 opacity-100 ${styles[type] || styles.info}`;
+            toast.innerHTML = `
+                <span>${escapeHtml(message)}</span>
+                <button onclick="this.parentElement.remove()" class="opacity-70 hover:opacity-100">✕</button>
+            `;
+
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+    </script>
+
+</body></html>
